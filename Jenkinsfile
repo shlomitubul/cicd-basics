@@ -1,6 +1,6 @@
 node {
      def projectDir = "selenium"
-
+     def mvnHome
      environment { 
         registry = "shlomitubul/gui-automation-course" 
 
@@ -8,7 +8,7 @@ node {
 
         dockerImage = ''
     }
-    
+
     stage ("git checkout") {
         dir(projectDir) {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7fed62af-6286-4430-83cf-f3f685e7d8c8', url: 'https://github.com/shlomitubul/AutomationCourse.git']]])  
@@ -16,6 +16,7 @@ node {
     }
 
     stage ("maven build") {
+        mvnHome = tool 'M3'
          dir(projectDir) {
               withEnv(["MVN_HOME=$mvnHome"]) {
                 bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
