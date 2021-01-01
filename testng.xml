@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="version" value="87.0.4280.88"/>
+    <parameter name="url" value="https://www.ebay.com"/>
+
+    <test verbose="2" preserve-order="true" name="C:/Users/shlomi/IdeaProjects/AutomationCourse">
+        <classes>
+            <class name="sanity.EbayMainSearchTest">
+                <methods>
+                    <include name="search_result_should_contains_text"/>
+                    <parameter name="searchable" value="apple watch"/>
+                    <parameter name="resultContainsText" value="apple watch"/>
+                </methods>
+            </class>
+
+            <class name="sanity.SignInTest">
+                <methods>
+                    <include name="signing_with_current_credentials"/>
+                    <parameter name="username" value="demo@gmail.com"/>
+                    <parameter name="password" value="mypassword"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
