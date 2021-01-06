@@ -1,13 +1,10 @@
 node {
      def projectDir = "selenium"
      def mvnHome
-     environment { 
-        registry = "shlomitubul/gui-automation-course" 
-
-        registryCredential = 'dockerHubCird' 
-
-        dockerImage = ''
-    }
+     def registry = "shlomitubul/gui-automation-course" 
+     def registryCredential = 'dockerHubCird' 
+     dockerImage = ''
+    
 
     stage ("git checkout") {
         dir(projectDir) {
