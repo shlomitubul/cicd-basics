@@ -16,7 +16,7 @@ node {
         mvnHome = tool 'M3'
          dir(projectDir) {
               withEnv(["MVN_HOME=$mvnHome"]) {
-                sh "$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package
+                sh "$MVN_HOME/bin/mvn -Dmaven.test.failure.ignore clean package"
             }
         }
     }
