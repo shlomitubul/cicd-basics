@@ -23,6 +23,7 @@ node {
 
     stage ("docker build") {
         dir(projectDir) {
+            sh "chmod +x -R ${env.WORKSPACE}"
             dockerImage = docker.build registry + ":$BUILD_NUMBER" 
         }
     }
